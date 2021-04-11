@@ -23,7 +23,6 @@ public class GlobalExceptionHandler {
     @DisableBaseResponse
     public Object handleException(Exception e) {
         logger.error(e.getMessage());
-        e.printStackTrace();
         return new ResponseResult<>(400, e.getMessage());
     }
 
