@@ -1,0 +1,20 @@
+server:
+  port: 8080
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/know?characterEncoding=utf8&serverTimezone=UTC
+    username: root
+    password: abc521521521
+  servlet:
+    multipart:
+      max-file-size: 500MB
+      max-request-size: 500MB
+mybatis-plus:
+  global-config:
+    db-config:
+      id-type: uuid
+
+#自定义配置文件
+#上传视频本地保存地址
+videoSavePath: /Users/soanr/Desktop/videos
