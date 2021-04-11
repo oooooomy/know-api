@@ -71,9 +71,11 @@ public class ArticleServiceImpl implements ArticleService {
         List<ArticleVo> result = new ArrayList<>();
         for (Article article : articles) {
             User user = userMapper.selectById(article.getUid());
-            user.setPassword("");
-            user.setPhone("");
-            result.add(new ArticleVo(article, user));
+            if (user != null) {
+                user.setPassword("");
+                user.setPhone("");
+                result.add(new ArticleVo(article, user));
+            }
         }
         return result;
     }
