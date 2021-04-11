@@ -13,14 +13,17 @@ public class WebConfiguration extends WebMvcConfigurationSupport {
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
         InterceptorRegistration interceptor = registry.addInterceptor(new LoginInterceptor());
-        interceptor.addPathPatterns("/**");
-        interceptor.excludePathPatterns("/api/user/**", "/api/file/image");
+        interceptor.addPathPatterns("/api/**");
+        interceptor.excludePathPatterns("/api/user/**", "/api/file/**");
         super.addInterceptors(registry);
     }
 
     @Override
     protected void addCorsMappings(CorsRegistry registry) {
-        registry.addMapping("/**").allowedMethods("*").allowedOrigins("*").allowedHeaders("*");
+        registry.addMapping("/**")
+                .allowedHeaders("*")
+                .allowedMethods("*")
+                .allowedOrigins("*");
         super.addCorsMappings(registry);
     }
 
